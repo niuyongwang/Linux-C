@@ -1,0 +1,17 @@
+PubLib = -lpcap
+LibPath = ./
+IncPath = ./
+
+ExecFile = TCP_STREAM_pcap
+
+all:$(ExecFile)
+
+$(ExecFile):TCP.STREAM_pcap.o
+	gcc $^ -o $@ $(PubLib)
+
+%.o:%.c
+	gcc -c $< -o $@ -Wall
+
+clean:
+	rm -rf *.o $(ExecFile)
+.PHONY: clean

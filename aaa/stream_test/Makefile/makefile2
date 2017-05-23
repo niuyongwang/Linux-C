@@ -1,0 +1,9 @@
+main : TCP.STREAM_pcap.o
+	gcc TCP.STREAM_pcap.o -o TCP.STREAM_pcap -lpcap
+
+TCP.STREAM_pcap.o : TCP.STREAM_pcap.c
+	gcc -c TCP.STREAM_pcap.c -o TCP.STREAM_pcap.o
+
+clean:
+	rm *.o -rf
+.PHONY: clean
